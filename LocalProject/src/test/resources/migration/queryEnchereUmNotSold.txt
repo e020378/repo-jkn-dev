@@ -1,0 +1,7 @@
+select DISTINCT *
+from enchere_um with(nolock)
+where
+	attribuee in('D', 'E', 'N')
+and id_enchere_lot is null
+and Statut_UM not in ('dsbl')
+order by Reference_UM desc

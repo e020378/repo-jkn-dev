@@ -1,0 +1,17 @@
+select
+	um.Id_UM, um.identification_um, um.Reference_UM,
+--	um4.name,
+	um1.textValue NonPrimeSteelGradeStandardName, um1.Code_Value NonPrimeSteelGradeStandardCode,
+	um2.textValue NonPrimeSteelGradeName		, um2.Code_Value NonPrimeSteelGradeCode,
+	um3.textValue SteelGradeName				, um3.Code_Value SteelGradeCode
+from enchere_um um with(nolock)
+	LEFT JOIN Enchere_CaractUM um1 with(nolock) on (um.id_UM = um1.id_UM AND um1.name='NPSteelGradeStandard')
+	LEFT JOIN Enchere_CaractUM um2 with(nolock) on (um.id_UM = um2.id_UM AND um2.name='Quacom_Nuance')
+	LEFT JOIN Enchere_CaractUM um3 with(nolock) on (um.id_UM = um3.id_UM AND um3.name='PrivateTradeMarkGrade1')
+--	LEFT JOIN Enchere_CaractUM um4 with(nolock) on um.id_UM = um4.id_UM
+where
+	um.attribuee in('D', 'E', 'N')
+and um.id_enchere_lot is null 
+and um.Statut_UM not in ('dsbl')
+--and um4.name in('NPSteelGradeStandard', 'Quacom_Nuance', 'PrivateTradeMarkGrade1')
+order by um.ID_UM desc--, um4.name
