@@ -17,6 +17,7 @@ public interface Constant {
 	String 	SERVER_NAME_DEV_MASTER	= "SQL_STEELUSER_DEV\\SqlMaster";
 	String 	SERVER_NAME_PRODUCTION	= "SQL_STEELUSER";
 	String 	SERVER_NAME_ACCEPTANCE	= "SQL_STEELUSER_INT";
+	String	SERVER_NAME_ACCEPTANCE_HOTFIX = "SQL_STEELUSER_HOTFIX\\sqlhotfix";
 	String 	DATABASE_NAME			= "steeluser";
 
 	String 	USER_NAME_ADMIN			= "Steel_Admin";
@@ -25,15 +26,20 @@ public interface Constant {
 	String 	USER_PASSWORD_ADMIN		= "Steel_Admin_p@ssw0r3";
 	String 	USER_PASSWORD_READER_DEV= "Steel_Reader_p@ssw0r2";
 	String 	USER_PASSWORD_READER_ACC= "STU_Reader_pwd717";
+	String	USER_PASSWORD_READER_ACC_HTX = "STU_Reader_pwd717";
 	String 	USER_PASSWORD_READER_PROD= "Steel_Reader_p@sswd105";
 
-	Object[] DB_ARGS_DEV_MASTER = {Constant.SERVER_NAME_DEV_MASTER, Constant.DATABASE_NAME, Constant.USER_NAME_READER, Constant.USER_PASSWORD_READER_DEV};
-	Object[] DB_ARGS_PRODUCTION = {Constant.SERVER_NAME_PRODUCTION, Constant.DATABASE_NAME, Constant.USER_NAME_READER, Constant.USER_PASSWORD_READER_PROD};
-	Object[] DB_ARGS_ACCEPTANCE = {Constant.SERVER_NAME_ACCEPTANCE, Constant.DATABASE_NAME, Constant.USER_NAME_READER, Constant.USER_PASSWORD_READER_ACC};
+	Object[] DB_ARGS_DEV_MASTER =		{Constant.SERVER_NAME_DEV_MASTER, Constant.DATABASE_NAME, Constant.USER_NAME_READER, Constant.USER_PASSWORD_READER_DEV};
+	Object[] DB_ARGS_PRODUCTION = 		{Constant.SERVER_NAME_PRODUCTION, Constant.DATABASE_NAME, Constant.USER_NAME_READER, Constant.USER_PASSWORD_READER_PROD};
+	Object[] DB_ARGS_ACCEPTANCE = 		{Constant.SERVER_NAME_ACCEPTANCE, Constant.DATABASE_NAME, Constant.USER_NAME_READER, Constant.USER_PASSWORD_READER_ACC};
+
+
+	Object[] DB_ARGS_ACCEPTANCE_HOTFIX ={Constant.SERVER_NAME_ACCEPTANCE_HOTFIX, Constant.DATABASE_NAME, Constant.USER_NAME_READER, Constant.USER_PASSWORD_READER_ACC_HTX};
 
 	final String TEST_QUERY_SYS		= "SELECT DATEADD(ms,-sample_ms,GETDATE() ) 'BOL' FROM sys.dm_io_virtual_file_stats(1,1)";
 //										"SELECT create_date 'tempdb' FROM sys.databases WHERE name = 'tempdb'";
 //										"SELECT login_time 'session' FROM sys.dm_exec_sessions WHERE session_id =1";
+
 
 	public static final class Query{
 		public static String UM_MAX_ID_FROM_VALEUR_CARACTERISTIQUE ="select max(v.id_um) FROM Valeur_Caracteristique v with(nolock)";
@@ -130,6 +136,9 @@ public interface Constant {
 			public static String ORIGINALCUSTOMERDESC			= "OriginalCustomerDesc";
 			public static String POIDS_NET						= "Poids_net";
 			public static String UNITE_POIDS_NET				= "Unite_Poids_Net";
+			public static String SEGCLASS						= "segClass";
+			public static String SEGSTANDARD					= "segStandard";
+			public static String SEGCOILTYPE					= "segCoilType";
 		}
 	}
 }

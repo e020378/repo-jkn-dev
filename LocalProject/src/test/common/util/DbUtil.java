@@ -29,6 +29,10 @@ public final class DbUtil {
 		return createConnectionGeneric(Constant.DB_URL_SQLSERVER, null, Constant.DB_ARGS_ACCEPTANCE);
 	}
 
+	public static Connection createConnectionAcceptanceHotfix(){
+		return createConnectionGeneric(Constant.DB_URL_SQLSERVER, null, Constant.DB_ARGS_ACCEPTANCE_HOTFIX);
+	}
+
 	public static Connection createConnectionProduction(){
 		return createConnectionGeneric(Constant.DB_URL_SQLSERVER, null, Constant.DB_ARGS_PRODUCTION);
 	}

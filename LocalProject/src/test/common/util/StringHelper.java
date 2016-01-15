@@ -55,6 +55,8 @@ public final class StringHelper {
 	}
 	
 	public static final String quote(String value){
+		if(StringHelper.isEmpty(value))
+			return "NULL";
 		return "'"+value+"'";
 	}
 
@@ -65,6 +67,9 @@ public final class StringHelper {
 	 */
 	public static String toString(Object o) {
 		try{
+			if(o==null){
+				return "[null]";
+			}
 			int mx = 0;
 			List<String> ln = new ArrayList<String>(),
 						 lv = new ArrayList<String>();
